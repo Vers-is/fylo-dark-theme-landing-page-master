@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
       type="image/png"
@@ -14,9 +14,7 @@
     <title>Fylo</title>
   </head>
   <body>
-
     <div class="page-wrapper">
-
       <!-- NAVIGATION -->
 
       <nav>
@@ -36,13 +34,16 @@
           All your files in one secure location, accessible anywhere.
         </h1>
         <p class="description">
-          Fylo stores all your most important files in one secure location. Access
-          them wherever you need, share and collaborate with friends family, and
-          co-workers.
+          Fylo stores all your most important files in one secure location.
+          Access them wherever you need, share and collaborate with friends
+          family, and co-workers.
         </p>
         <button class="hero_button">Get Started</button>
       </section>
-      <img src="./images/bg-curvy-desktop.svg" alt="" class="back-detail wave">
+      <img
+        src="./images/bg-curvy-desktop.svg"
+        alt=""
+        class="back-detail wave" />
       <div class="back-detail background"></div>
     </div>
 
@@ -120,7 +121,7 @@
     </section>
 
     <!-- REVIEWS SECTION -->
-    <img src="./images/bg-quotes.png" alt="" class="back-detail quote">
+    <img src="./images/bg-quotes.png" alt="" class="back-detail quote" />
     <section class="reviews">
       <div class="review_block">
         <p class="description">
@@ -185,7 +186,10 @@
         help you.
       </p>
       <div class="input_cover">
-        <input class="email_input" type="email" placeholder="email@example.com" />
+        <input
+          class="email_input"
+          type="email"
+          placeholder="email@example.com" />
         <button class="button_action">Get Started For Free</button>
         <div class="error">Please enter a valid email adress</div>
       </div>
@@ -256,48 +260,46 @@
         </div>
       </div>
     </footer>
-
   </body>
 
-<!-- JSSSSSSSSSSS -->
- 
-<script>
-  // EMAIL VALIDATION + ERROR BUTTON SHOWING
-  document.querySelector('.button_action').addEventListener('click', function (e) {
-    e.preventDefault(); 
+  <!-- JSSSSSSSSSSS -->
 
-    const emailInput = document.querySelector('.email_input');
-    const errorMessage = document.querySelector('.error');
-    const email = emailInput.value.trim();
+  <script>
+    // EMAIL VALIDATION + ERROR BUTTON SHOWING
+    document
+      .querySelector(".button_action")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailInput = document.querySelector(".email_input");
+        const errorMessage = document.querySelector(".error");
+        const email = emailInput.value.trim();
 
-    if (!emailRegex.test(email)) {
-      errorMessage.classList.add('show');
-    } else {
-      errorMessage.classList.remove('show');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      emailInput.value = '';
-    }
-  });
+        if (!emailRegex.test(email)) {
+          errorMessage.classList.add("show");
+        } else {
+          errorMessage.classList.remove("show");
 
-  // MEDIA ICON -> HOVER -> BLUE MEDIA ICON
-  const mediaIcons = document.querySelectorAll('.footer_media');
+          emailInput.value = "";
+        }
+      });
 
-  mediaIcons.forEach(img => {
-    const originalSrc = img.src;
-    const hoverSrc = img.getAttribute('data-hover');
+    // MEDIA ICON -> HOVER -> BLUE MEDIA ICON
+    const mediaIcons = document.querySelectorAll(".footer_media");
 
-    img.addEventListener('mouseenter', () => {
-      img.src = hoverSrc;
+    mediaIcons.forEach((img) => {
+      const originalSrc = img.src;
+      const hoverSrc = img.getAttribute("data-hover");
+
+      img.addEventListener("mouseenter", () => {
+        img.src = hoverSrc;
+      });
+
+      img.addEventListener("mouseleave", () => {
+        img.src = originalSrc;
+      });
     });
-
-    img.addEventListener('mouseleave', () => {
-      img.src = originalSrc;
-    });
-  });
-</script>
-
+  </script>
 </html>
-
-
