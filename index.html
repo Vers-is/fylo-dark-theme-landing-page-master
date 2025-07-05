@@ -14,31 +14,37 @@
     <title>Fylo</title>
   </head>
   <body>
-    <!-- NAVIGATION -->
 
-    <nav>
-      <img src="./images/icons/logo.svg" alt="" class="nav_logo" />
-      <div class="nav_links">
-        <a href="" class="nav_link">Features</a>
-        <a href="" class="nav_link">Team</a>
-        <a href="" class="nav_link">Sign In</a>
-      </div>
-    </nav>
+    <div class="page-wrapper">
 
-    <!-- HERO SECTION -->
+      <!-- NAVIGATION -->
 
-    <section class="hero">
-      <img src="./images/illustration-intro.png" alt="" class="hero_image" />
-      <h1 class="title">
-        All your files in one secure location, accessible anywhere.
-      </h1>
-      <p class="description">
-        Fylo stores all your most important files in one secure location. Access
-        them wherever you need, share and collaborate with friends family, and
-        co-workers.
-      </p>
-      <button class="hero_button">Get Started</button>
-    </section>
+      <nav>
+        <img src="./images/icons/logo.svg" alt="" class="nav_logo" />
+        <div class="nav_links">
+          <a href="" class="nav_link">Features</a>
+          <a href="" class="nav_link">Team</a>
+          <a href="" class="nav_link">Sign In</a>
+        </div>
+      </nav>
+
+      <!-- HERO SECTION -->
+
+      <section class="hero">
+        <img src="./images/illustration-intro.png" alt="" class="hero_image" />
+        <h1 class="title">
+          All your files in one secure location, accessible anywhere.
+        </h1>
+        <p class="description">
+          Fylo stores all your most important files in one secure location. Access
+          them wherever you need, share and collaborate with friends family, and
+          co-workers.
+        </p>
+        <button class="hero_button">Get Started</button>
+      </section>
+      <img src="./images/bg-curvy-desktop.svg" alt="" class="back-detail wave">
+      <div class="back-detail background"></div>
+    </div>
 
     <!-- FEATURES SECTION -->
 
@@ -114,7 +120,7 @@
     </section>
 
     <!-- REVIEWS SECTION -->
-
+    <img src="./images/bg-quotes.png" alt="" class="back-detail quote">
     <section class="reviews">
       <div class="review_block">
         <p class="description">
@@ -179,8 +185,9 @@
         help you.
       </p>
       <div class="input_cover">
-        <input type="email" placeholder="email@example.com" />
+        <input class="email_input" type="email" placeholder="email@example.com" />
         <button class="button_action">Get Started For Free</button>
+        <div class="error">Please enter a valid email adress</div>
       </div>
     </section>
 
@@ -206,14 +213,14 @@
               src="./images/icons/footer/icon-phone.svg"
               alt=""
               class="footer_icon" />
-            <p class="description">+1-543-123-4567</p>
+            <p class="phone_number">+1-543-123-4567</p>
           </div>
           <div class="footer_cover">
             <img
               src="./images/icons/footer/icon-email.svg"
               alt=""
               class="footer_icon" />
-            <p class="description">example@fylo.com</p>
+            <p class="email">example@fylo.com</p>
           </div>
         </div>
 
@@ -232,19 +239,65 @@
 
         <div class="footer_block">
           <img
-            src="./images/icons/footer/media/facebook.png"
+            src="./images/icons/footer/media/facebook.PNG"
+            data-hover="./images/icons/footer/media_blue/blue_facebook.PNG"
             alt=""
             class="footer_media" />
           <img
-            src="./images/icons/footer/media/twitter.png"
+            src="./images/icons/footer/media/twitter.PNG"
+            data-hover="./images/icons/footer/media_blue/blue_twitter.PNG"
             alt=""
             class="footer_media" />
           <img
-            src="./images/icons/footer/media/instagram.png"
+            src="./images/icons/footer/media/insta.PNG"
+            data-hover="./images/icons/footer/media_blue/blue_instagram.PNG"
             alt=""
             class="footer_media" />
         </div>
       </div>
     </footer>
+
   </body>
+
+<!-- JSSSSSSSSSSS -->
+ 
+<script>
+  // EMAIL VALIDATION + ERROR BUTTON SHOWING
+  document.querySelector('.button_action').addEventListener('click', function (e) {
+    e.preventDefault(); 
+
+    const emailInput = document.querySelector('.email_input');
+    const errorMessage = document.querySelector('.error');
+    const email = emailInput.value.trim();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      errorMessage.classList.add('show');
+    } else {
+      errorMessage.classList.remove('show');
+
+      emailInput.value = '';
+    }
+  });
+
+  // MEDIA ICON -> HOVER -> BLUE MEDIA ICON
+  const mediaIcons = document.querySelectorAll('.footer_media');
+
+  mediaIcons.forEach(img => {
+    const originalSrc = img.src;
+    const hoverSrc = img.getAttribute('data-hover');
+
+    img.addEventListener('mouseenter', () => {
+      img.src = hoverSrc;
+    });
+
+    img.addEventListener('mouseleave', () => {
+      img.src = originalSrc;
+    });
+  });
+</script>
+
 </html>
+
+
